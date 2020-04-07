@@ -5,6 +5,8 @@ import javax.swing.*;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.net.Socket;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 
@@ -24,7 +26,16 @@ public class Alice {
             cipherAES.init(Cipher.ENCRYPT_MODE, keyAES);
             byte[] encryptedText = cipherAES.doFinal(byteArray);
 
-            Bob.sendFile(encryptedText, keyAES);
+            Socket socket = new Socket("localhost", 5555);
+            Object object = new Object();
+            object.setEncryptedFile(encryptedText);
+            object.setKey(keyAES);
+            object.setFileName(file.getName());
+
+            ObjectOutputStream objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
+            objectOutputStream.writeObject(object);
+
+            socket.close();
         } else {
             System.out.println("Arquivo não selecionado");
         }
