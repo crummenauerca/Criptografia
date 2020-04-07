@@ -1,20 +1,11 @@
 package com.crummenauerca.cripto;
 
-import javax.crypto.SecretKey;
 import java.io.Serializable;
+import java.security.PublicKey;
 
 public class Object implements Serializable {
-    private String fileName;
     private byte[] encryptedFile;
-    private SecretKey key;
-
-    public String getFileName() {
-        return fileName;
-    }
-
-    public void setFileName(String fileName) {
-        this.fileName = fileName;
-    }
+    private PublicKey publicKey;
 
     public byte[] getEncryptedFile() {
         return encryptedFile;
@@ -24,11 +15,11 @@ public class Object implements Serializable {
         this.encryptedFile = encryptedFile;
     }
 
-    public SecretKey getKey() {
-        return key;
+    public PublicKey getPublicKey() {
+        return publicKey;
     }
 
-    public void setKey(SecretKey key) {
-        this.key = key;
+    public void setPublicKey(PublicKey publicKey) {
+        this.publicKey = publicKey;
     }
 }
