@@ -5,42 +5,55 @@ import java.io.ObjectOutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.security.*;
+import java.util.Base64;
 
 public class Bob {
     public static void main(String[] args) throws NoSuchAlgorithmException {
         try {
-            System.out.println("[Bob] Gerando par de chaves RSA...");
-            KeyPairGenerator keyGen = KeyPairGenerator.getInstance("RSA");
-            keyGen.initialize(2048);
-            KeyPair pair = keyGen.generateKeyPair();
-            PrivateKey privateKey = pair.getPrivate();
-            PublicKey publicKey = pair.getPublic();
+            System.out.println("[Bob] Gerando par de chaves RSA");
+            KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance("RSA");
+            keyPairGenerator.initialize(2048);
+            KeyPair keyPairRSA = keyPairGenerator.generateKeyPair();
 
-            ServerSocket serverSocket = new ServerSocket(5555);
+            System.out.println("[Bob] Gerando chave AES");
+            SecretKey keyAES = KeyGenerator.getInstance("AES").generateKey();
+
+            System.out.println("[Bob] Codificando chave AES");
+            byte[] encodedKey = Base64.getEncoder().encode(keyAES.getEncoded());
+
+            System.out.println("[Bob] Criptografando chave AES codificada usando a chave privada RSA");
+            Cipher cipherRSA = Cipher.getInstance("RSA");
+            cipherRSA.init(Cipher.ENCRYPT_MODE, keyPairRSA.getPrivate());
+            byte[] encryptedKey = cipherRSA.doFinal(encodedKey);
+
             System.out.println("[Bob] Aguardando conexão na porta 5555");
+            ServerSocket serverSocket = new ServerSocket(5555);
 
             Socket socket = serverSocket.accept();
             System.out.println("[Bob] Conexão recebida. Oie, Alice :)");
 
-            System.out.println("[Bob] Compartilhando chave pública");
             Object object = new Object();
-            object.setPublicKey(publicKey);
-            ObjectOutputStream objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
-            objectOutputStream.writeObject(object);
+            System.out.println("[Bob] Empacotando chave pública RSA");
+            object.setPublicKey(keyPairRSA.getPublic());
+            System.out.println("[Bob] Empacotando chave AES (codificada e criptografada)");
+            object.setEncryptedKey(encryptedKey);
 
-            System.out.println("[Bob] Recebendo dados criptografafos");
+            System.out.println("[Bob] Compartilhando pacote com chaves criptografadas");
+            new ObjectOutputStream(socket.getOutputStream()).writeObject(object);
+
+            System.out.println("[Bob] Recebendo dados criptografados");
             ObjectInputStream objectInputStream = new ObjectInputStream(socket.getInputStream());
             object = (Object) objectInputStream.readObject();
-            System.out.println("Dados criptografados:\n" + new String(object.getEncryptedFile()));
+            System.out.println("[Bob] Dados criptografados:\n" + new String(object.getEncryptedFile()));
 
-            Cipher cipherRSA = Cipher.getInstance("RSA");
-            cipherRSA.init(Cipher.DECRYPT_MODE, privateKey);
+            System.out.println("[Bob] Descriptografando dados recebidos usando AES");
+            Cipher cipherAES = Cipher.getInstance("AES");
+            cipherAES.init(Cipher.DECRYPT_MODE, keyAES);
+            byte[] plainText = cipherAES.doFinal(object.getEncryptedFile());
 
-            byte[] plainText = cipherRSA.doFinal(object.getEncryptedFile());
-
-            System.out.println("Dados descriptografados:\n" + new String(plainText));
-        } catch(Exception exception) {
-            System.out.println(exception.getMessage());
+            System.out.println("[Bob] Dados descriptografados:\n" + new String(plainText));
+        } catch (Exception exception) {
+            exception.printStackTrace();
         }
     }
 }
