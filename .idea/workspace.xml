@@ -2,15 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3e861f85-94db-4bf7-a477-871e2b36e14d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/crummenauerca/cripto/Diffie.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Criptografia síncrona/com/crummenauerca/cripto/Hash.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/crummenauerca/cripto/Hash.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Criptografia síncrona/com/crummenauerca/cripto/Alice.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Criptografia síncrona/com/crummenauerca/cripto/Bob.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Criptografia síncrona/com/crummenauerca/cripto/Object.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/crummenauerca/cripto/Alice.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/crummenauerca/cripto/Bob.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/crummenauerca/cripto/Hellman.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/crummenauerca/cripto/Object.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Criptografia síncrona/com/crummenauerca/cripto/Diffie.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Criptografia síncrona/com/crummenauerca/cripto/Hellman.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Criptografia síncrona/com/crummenauerca/cripto/Util.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/crummenauerca/cripto/Diffie.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/crummenauerca/cripto/Hellman.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/crummenauerca/cripto/Util.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,7 +28,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1aBS7wHqWwTZ8QPdnoXPebCcud2" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -50,9 +52,9 @@
       <recent name="C:\Users\crumm\IdeaProjects\Criptografia síncrona\src\com\crummenauerca\cripto" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Diffie">
-    <configuration name="Diffie" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.crummenauerca.cripto.Diffie" />
+  <component name="RunManager" selected="Application.Hash">
+    <configuration name="Hash" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.crummenauerca.cripto.Hash" />
       <module name="Criptografia síncrona" />
       <extension name="coverage">
         <pattern>
@@ -79,7 +81,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Diffie" />
+        <item itemvalue="Application.Hash" />
         <item itemvalue="Application.Hellman" />
       </list>
     </recent_temporary>
@@ -96,7 +98,7 @@
       <updated>1586207329867</updated>
       <workItem from="1586207334101" duration="14207000" />
       <workItem from="1586839270558" duration="15186000" />
-      <workItem from="1587980651521" duration="3698000" />
+      <workItem from="1587980651521" duration="9749000" />
     </task>
     <servers />
   </component>
@@ -104,26 +106,30 @@
     <option name="version" value="2" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="829" y="51" key="#com.intellij.ide.util.MemberChooser" timestamp="1586843726430">
+    <state x="829" y="51" key="#com.intellij.ide.util.MemberChooser" timestamp="1587985877995">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="829" y="51" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1586843726430" />
-    <state width="1323" height="132" key="GridCell.Tab.0.bottom" timestamp="1587984257360">
+    <state x="829" y="51" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1587985877995" />
+    <state x="413" y="110" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1588004538788">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="132" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1587984257360" />
-    <state width="1323" height="132" key="GridCell.Tab.0.center" timestamp="1587984257360">
+    <state x="413" y="110" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728@0.0.1366.728" timestamp="1588004538788" />
+    <state width="1323" height="132" key="GridCell.Tab.0.bottom" timestamp="1588005323949">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="132" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1587984257360" />
-    <state width="1323" height="132" key="GridCell.Tab.0.left" timestamp="1587984257359">
+    <state width="1323" height="132" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1588005323949" />
+    <state width="1323" height="132" key="GridCell.Tab.0.center" timestamp="1588005323948">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="132" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1587984257359" />
-    <state width="1323" height="132" key="GridCell.Tab.0.right" timestamp="1587984257360">
+    <state width="1323" height="132" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1588005323948" />
+    <state width="1323" height="132" key="GridCell.Tab.0.left" timestamp="1588005323948">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="132" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1587984257360" />
+    <state width="1323" height="132" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1588005323948" />
+    <state width="1323" height="132" key="GridCell.Tab.0.right" timestamp="1588005323948">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="132" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1588005323948" />
     <state x="379" y="187" key="com.intellij.ide.util.TipDialog" timestamp="1586839270463">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
