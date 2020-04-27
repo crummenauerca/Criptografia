@@ -2,10 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3e861f85-94db-4bf7-a477-871e2b36e14d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/crummenauerca/cripto/Diffie.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/crummenauerca/cripto/Alice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/crummenauerca/cripto/Alice.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/crummenauerca/cripto/Bob.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/crummenauerca/cripto/Bob.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/crummenauerca/cripto/Object.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/crummenauerca/cripto/Object.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Criptografia síncrona/com/crummenauerca/cripto/Alice.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Criptografia síncrona/com/crummenauerca/cripto/Bob.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Criptografia síncrona/com/crummenauerca/cripto/Object.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/crummenauerca/cripto/Alice.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/crummenauerca/cripto/Bob.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/crummenauerca/cripto/Hellman.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/crummenauerca/cripto/Object.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,7 +31,6 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
@@ -41,9 +45,14 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
   </component>
-  <component name="RunManager" selected="Application.Alice">
-    <configuration name="Alice" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.crummenauerca.cripto.Alice" />
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\crumm\IdeaProjects\Criptografia síncrona\src\com\crummenauerca\cripto" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Diffie">
+    <configuration name="Diffie" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.crummenauerca.cripto.Diffie" />
       <module name="Criptografia síncrona" />
       <extension name="coverage">
         <pattern>
@@ -55,8 +64,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Bob" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.crummenauerca.cripto.Bob" />
+    <configuration name="Hellman" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.crummenauerca.cripto.Hellman" />
       <module name="Criptografia síncrona" />
       <extension name="coverage">
         <pattern>
@@ -70,8 +79,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Alice" />
-        <item itemvalue="Application.Bob" />
+        <item itemvalue="Application.Diffie" />
+        <item itemvalue="Application.Hellman" />
       </list>
     </recent_temporary>
   </component>
@@ -86,34 +95,35 @@
       <option name="presentableId" value="Default" />
       <updated>1586207329867</updated>
       <workItem from="1586207334101" duration="14207000" />
-      <workItem from="1586839270558" duration="14548000" />
+      <workItem from="1586839270558" duration="15186000" />
+      <workItem from="1587980651521" duration="3698000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
   </component>
   <component name="WindowStateProjectService">
     <state x="829" y="51" key="#com.intellij.ide.util.MemberChooser" timestamp="1586843726430">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="829" y="51" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1586843726430" />
-    <state width="1323" height="131" key="GridCell.Tab.0.bottom" timestamp="1586855524653">
+    <state width="1323" height="132" key="GridCell.Tab.0.bottom" timestamp="1587984257360">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="131" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1586855524653" />
-    <state width="1323" height="131" key="GridCell.Tab.0.center" timestamp="1586855524653">
+    <state width="1323" height="132" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1587984257360" />
+    <state width="1323" height="132" key="GridCell.Tab.0.center" timestamp="1587984257360">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="131" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1586855524653" />
-    <state width="1323" height="131" key="GridCell.Tab.0.left" timestamp="1586855524653">
+    <state width="1323" height="132" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1587984257360" />
+    <state width="1323" height="132" key="GridCell.Tab.0.left" timestamp="1587984257359">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="131" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1586855524653" />
-    <state width="1323" height="131" key="GridCell.Tab.0.right" timestamp="1586855524653">
+    <state width="1323" height="132" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1587984257359" />
+    <state width="1323" height="132" key="GridCell.Tab.0.right" timestamp="1587984257360">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="131" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1586855524653" />
+    <state width="1323" height="132" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1587984257360" />
     <state x="379" y="187" key="com.intellij.ide.util.TipDialog" timestamp="1586839270463">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
