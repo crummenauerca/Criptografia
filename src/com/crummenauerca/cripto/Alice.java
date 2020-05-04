@@ -4,6 +4,9 @@ import javax.crypto.*;
 import javax.swing.*;
 import java.io.*;
 import java.net.Socket;
+import java.security.KeyPair;
+import java.security.KeyPairGenerator;
+import java.security.MessageDigest;
 
 public class Alice {
     public static void main(String[] args) {
@@ -16,6 +19,11 @@ public class Alice {
                 FileInputStream fileInputStream = new FileInputStream(file);
                 byte[] content = new byte[(int) fileInputStream.getChannel().size()];
                 fileInputStream.read(content);
+
+                System.out.println("[Alice] Gerando par de chaves RSA para garantir integridade...");
+                KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance("RSA");
+                keyPairGenerator.initialize(1024);
+                KeyPair keyPair = keyPairGenerator.generateKeyPair();
 
                 System.out.println("[Alice] Conectando pela porta 5555...");
                 Socket socket = new Socket("localhost", 5555);
@@ -36,9 +44,11 @@ public class Alice {
 
                 System.out.println("[Alice] Criptografando chave de sessão AES usando a chave privada RSA de Bob...");
                 Cipher cipherRSA = Cipher.getInstance("RSA");
-                cipherRSA.init(Cipher.ENCRYPT_MODE, object.getPublicKey());
+                cipherRSA.init(Cipher.ENCRYPT_MODE, object.getPublicKeyBob());
                 byte[] encryptedSessionKey = cipherRSA.doFinal(secretKey.getEncoded());
 
+                System.out.println("[Alice] Empacotando chave RSA pública de Alice para garantir integridade...");
+                object.setPublicKeyAlice(keyPair.getPublic());
                 System.out.println("[Alice] Empacotando chave de sessão AES (criptografada)...");
                 object.setEncryptedSessionKey(encryptedSessionKey);
                 System.out.println("[Alice] Empacotando conteúdo criptografado de arquivo...");
@@ -46,8 +56,25 @@ public class Alice {
                 System.out.println("[Alice] Empacotando nome do arquivo...");
                 object.setFileName(file.getName());
 
+                System.out.println("[Alice] Serializando pacote de dados...");
+                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                ObjectOutputStream objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
+                objectOutputStream.writeObject(object);
+                objectOutputStream.close();
+                byteArrayOutputStream.close();
+
+                System.out.println("[Alice] Gerando hash do pacote serializado...");
+                byte[] hash = MessageDigest.getInstance("SHA-256").digest(byteArrayOutputStream.toByteArray());
+
+                System.out.println("[Alice] Criptografando hash...");
+                cipherRSA.init(Cipher.ENCRYPT_MODE, keyPair.getPrivate());
+                byte[] signature = cipherRSA.doFinal(hash);
+
+                System.out.println("[Alice] Adicionando assinatura digital no pacote...");
+                object.setSignature(signature);
+
                 System.out.println("[Alice] Enviando pacote de dados...");
-                ObjectOutputStream objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
+                objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
                 objectOutputStream.writeObject(object);
                 System.out.println("[Alice] Dados enviados");
 

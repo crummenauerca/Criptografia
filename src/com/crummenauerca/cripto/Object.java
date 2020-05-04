@@ -5,9 +5,11 @@ import java.security.PublicKey;
 
 public class Object implements Serializable {
     private String fileName;
+    private byte[] signature;
     private byte[] encryptedContent;
     private byte[] encryptedSessionKey;
-    private PublicKey publicKey;
+    private PublicKey publicKeyBob;
+    private PublicKey publicKeyAlice;
 
     public String getFileName() {
         return fileName;
@@ -15,6 +17,14 @@ public class Object implements Serializable {
 
     public void setFileName(String fileName) {
         this.fileName = fileName;
+    }
+
+    public byte[] getSignature() {
+        return signature;
+    }
+
+    public void setSignature(byte[] signature) {
+        this.signature = signature;
     }
 
     public byte[] getEncryptedContent() {
@@ -33,11 +43,19 @@ public class Object implements Serializable {
         this.encryptedSessionKey = encryptedSessionKey;
     }
 
-    public PublicKey getPublicKey() {
-        return publicKey;
+    public PublicKey getPublicKeyBob() {
+        return publicKeyBob;
     }
 
-    public void setPublicKey(PublicKey publicKey) {
-        this.publicKey = publicKey;
+    public void setPublicKeyBob(PublicKey publicKeyBob) {
+        this.publicKeyBob = publicKeyBob;
+    }
+
+    public PublicKey getPublicKeyAlice() {
+        return publicKeyAlice;
+    }
+
+    public void setPublicKeyAlice(PublicKey publicKeyAlice) {
+        this.publicKeyAlice = publicKeyAlice;
     }
 }
